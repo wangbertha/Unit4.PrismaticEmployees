@@ -1,0 +1,56 @@
+@host=http://localhost:3000
+
+### Get all employees
+GET {{host}}/employees
+
+### Get employee with id: 3
+GET {{host}}/employees/3
+
+### Get invalid employee id
+GET {{host}}/employees/20
+
+### Update name for given employee
+PUT {{host}}/employees/3
+
+Content-Type: application/json
+{
+   "name": "Sarah"
+}
+
+### Attempt update with typo in "name"
+PUT {{host}}/employees/3
+Content-Type: application/json
+
+{
+    "nam": "Sarah"
+}
+
+### Attempt update for nonexistent employee
+PUT {{host}}/employees/100
+Content-Type: application/json
+
+{
+    "name": "Sarah"
+}
+
+### Add new employee
+POST {{host}}/employees
+Content-Type: application/json
+
+{
+    "name": "Jennifer"
+}
+
+### Attempt to add new employee with typo in request
+POST {{host}}/employees
+Content-Type: application/json
+
+{
+    "nam": "Jennifer"
+}
+
+### Delete employee
+DELETE {{host}}/employees/3
+
+### Attempt to delete nonexistent employee
+DELETE {{host}}/employees/100
