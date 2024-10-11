@@ -1,5 +1,8 @@
 @host=http://localhost:3000
 
+### Get root message
+GET {{host}}
+
 ### Get all employees
 GET {{host}}/employees
 
@@ -10,9 +13,9 @@ GET {{host}}/employees/3
 GET {{host}}/employees/20
 
 ### Update name for given employee
-PUT {{host}}/employees/3
-
+PUT {{host}}/employees/5
 Content-Type: application/json
+
 {
    "name": "Sarah"
 }
